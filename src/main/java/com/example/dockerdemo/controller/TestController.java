@@ -20,8 +20,8 @@ public class TestController {
     @GetMapping("/a")
     public Object getTest(){
         Map<String, Object> data = new HashMap<>();
-        data.put("name","张三");
-        data.put("age",20);
+        data.put("name","狂徒张三");
+        data.put("age",Math.random() * 200);
         return data;
     }
 }
