@@ -2,7 +2,7 @@ FROM java:8
 
 WORKDIR app
 
-COPY *.jar app.jar
+COPY target/*.jar app.jar
 
 EXPOSE 8080
 
