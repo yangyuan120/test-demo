@@ -1,0 +1,19 @@
+stages:
+- name: Complie
+  steps:
+  - runScriptConfig:
+      image: java:8
+      shellScript: mvn clean install
+- name: 发布镜像
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: app:v1
+      registry: 127.0.0.1:34233
+- name: 部署
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
+timeout: 60
+notification: {}
