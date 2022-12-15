@@ -1,0 +1,36 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: myapp-service
+spec:
+  selector:
+    app: myapp-test
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 9090
+      targetPort: 9090
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-test
+  labels:
+    app: myapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app:  myapp-test
+  template:
+    metadata:
+      labels:
+        app: myapp-test
+    spec:
+      imagePullSecrets:
+        - name: pipeline-docker-registry
+      containers:
+        - name: maven
+          image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+          ports:
+            - containerPort: 8080
