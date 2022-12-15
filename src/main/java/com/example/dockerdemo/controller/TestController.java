@@ -1,7 +1,5 @@
 package com.example.dockerdemo.controller;
 
-import netscape.javascript.JSObject;
-import netscape.javascript.JSUtil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
