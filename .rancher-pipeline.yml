@@ -9,7 +9,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: app:v1
+      tag: myapp-test:v1
       registry: 127.0.0.1:34233
 - name: 部署
   steps:

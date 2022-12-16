@@ -21,7 +21,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app:  myapp-test
+      app: myapp-test
   template:
     metadata:
       labels:
@@ -33,4 +33,4 @@ spec:
         - name: maven
           image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
           ports:
-            - containerPort: 8080
+            - containerPort: 9090
